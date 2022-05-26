@@ -2,12 +2,6 @@
 
 Due to being a little bit confused by the exam and wanting to build an S3 client that you could browse using Next.js, the whole serialisation of paths inside URLs were well outside an ordinary 2 or so hours to spend
 
-### Infrastructure as Code README
-
-- clone repo
-- cd terraform
-- terraform init for the providers/APIs etc
-
 ### Things done to finish this
 
 - [ ] Make some form of `?path[0]=prefix1&path[1]subprefix` or if possible `?path=prefix1/subprefix`. The first would be a longer URL but it is more guaranteed to not have `/` issues.
@@ -29,3 +23,19 @@ Due to being a little bit confused by the exam and wanting to build an S3 client
 - [ ] Bake that S3 Policy/Creation of IAM user in Terraform
 - [ ] Use STS or a Secrets Manager.
 - [ ] Write unit tests for add S3 file, upload etc
+
+---
+
+### Infrastructure as Code README
+
+This project uses Terraform to build an S3 bucket using an IAM account with sufficient permissions.
+
+```bash
+cd terraform
+# Build local environment, download the drivers and proviiders.
+terraform init
+# Use terraform plan to dry-run changes
+terraform plan
+# Once you accept changes (they will be creations or a lack of state change) and you know you're on the right track
+terraform apply
+```
